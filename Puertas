@@ -1,0 +1,37 @@
+if puertas_activas==1 then
+
+	if (tiempo_puerta==100 and seg_puerta==100) or abrir_cerrar[0]==1 then
+		
+		abrir_cerrar[0]=1
+		tiempo_puerta=tiempo_puerta-1
+			if tiempo_puerta==0 then
+				abrir_cerrar[0]=0
+				seg_puerta=0
+			    peso = Rand(750)
+
+				
+			endif
+	endif
+	
+	if (tiempo_puerta==0 and seg_puerta==100) or abrir_cerrar[1]==1 then
+		
+		abrir_cerrar[1]=1
+		tiempo_puerta=tiempo_puerta+1
+			if tiempo_puerta==100 then
+				abrir_cerrar[1]=0
+				seg_puerta=0
+				puertas_activas=0
+				if peso>500 then
+					puertas_activas=1
+				endif
+			endif
+	endif
+	
+	if  (tiempo_puerta==0 or tiempo_puerta==100) and ((not abrir_cerrar[1]) or  (not abrir_cerrar[0])) then
+	
+		seg_puerta+=1
+
+	endif 
+
+			
+endif
