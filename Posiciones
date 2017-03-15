@@ -1,0 +1,51 @@
+if not puertas_activas then
+
+	if proxima_parada==0 then
+		pixel_parada=0
+	endif
+	if proxima_parada==1 then
+		pixel_parada=-60
+	endif
+	if proxima_parada==2 then
+		pixel_parada=-122
+	endif
+	if proxima_parada==3 then
+		pixel_parada=-181
+	endif
+	if proxima_parada==4 then
+		pixel_parada=-235
+	endif
+	
+	if subir==1 then
+
+		pixel_actual-=1
+		Group_7.move(0 , pixel_actual )
+  
+		if pixel_parada==pixel_actual then
+			puertas_activas=1
+			paradas_fuera[proxima_parada]=0
+			paradas_dentro[proxima_parada]=0
+			posicion_actual=proxima_parada
+			subir=2
+
+		endif
+	endif
+	
+	if subir==0 then
+
+		pixel_actual+=1
+		Group_7.move(0 , pixel_actual )
+  
+		if pixel_parada==pixel_actual then
+			puertas_activas=1
+			paradas_fuera[proxima_parada]=0
+			paradas_dentro[proxima_parada]=0
+			posicion_actual=proxima_parada
+			subir=2
+
+		endif
+	endif
+
+endif	
+
+			
