@@ -1,0 +1,66 @@
+if subir==2 then
+	
+	FOR cont=posicion_actual TO 0 STEP -1
+		if paradas_dentro[cont]==1 and for_leer==1 then
+			proxima_parada=cont
+			for_leer=0
+			subir=0	
+		endif
+	NEXT
+	
+	FOR cont=posicion_actual TO 4 STEP 1
+		if paradas_dentro[cont]==1 and for_leer==1 then
+			proxima_parada=cont
+			for_leer=0
+			subir=1
+		endif
+	next
+	
+	FOR cont=posicion_actual TO 0 STEP -1
+		if paradas_fuera[cont]==1 and for_leer==1 then
+			proxima_parada=cont
+			for_leer=0
+			subir=0
+		endif
+	next
+	
+	
+	FOR cont=posicion_actual TO 4 STEP 1
+		if paradas_fuera[cont]==1 and for_leer==1 then
+			proxima_parada=cont
+			for_leer=0
+			subir=1
+		endif
+	next
+	
+	for_leer=1
+		
+endif
+
+
+
+if subir==1 then
+	
+	
+	FOR cont=posicion_actual TO 4 STEP 1
+		if paradas_dentro[cont]==1  then
+			proxima_parada=cont
+			subir=1
+			EXIT FOR
+		endif
+	next
+	
+endif
+
+if subir==0 then
+
+	
+	FOR cont=posicion_actual TO 0 STEP -1
+		if paradas_dentro[cont]==1 or  paradas_fuera[cont]==1 then
+			proxima_parada=cont
+			subir=0
+			EXIT FOR
+		endif
+	
+	next
+endif
